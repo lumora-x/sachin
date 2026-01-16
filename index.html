@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumoraX | Quality Content for Readers</title>
+    <meta name="description" content="A quality website with valuable content for readers. Our mission is to provide helpful information on various topics.">
+    <meta name="keywords" content="information, knowledge, articles, blog, resources">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4285f4;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #ea4335;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #4285f4;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            display: flex;
+            margin: 30px 0;
+            gap: 30px;
+        }
+        
+        article {
+            flex: 3;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        aside {
+            flex: 1;
+        }
+        
+        /* Article Styles */
+        .article-header {
+            margin-bottom: 25px;
+        }
+        
+        .article-header h1 {
+            font-size: 32px;
+            color: #222;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .article-meta {
+            display: flex;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .article-meta span {
+            margin-right: 20px;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 400px;
+            background-color: #e9f0fd;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4285f4;
+            font-size: 18px;
+            overflow: hidden;
+        }
+        
+        .article-content {
+            font-size: 18px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        
+        .article-content h2 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: #333;
+        }
+        
+        .article-content h3 {
+            font-size: 20px;
+            margin: 25px 0 10px;
+            color: #444;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* Ad Container Styles */
+        .ad-container {
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 20px;
+            border: 1px dashed #ccc;
+        }
+        
+        .ad-label {
+            display: block;
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ad-placeholder {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eaeaea;
+            color: #888;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar-widget {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-widget h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            color: #333;
+        }
+        
+        .recent-posts {
+            list-style: none;
+        }
+        
+        .recent-posts li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .recent-posts li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .recent-posts a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .recent-posts a:hover {
+            color: #4285f4;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .footer-section p {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4285f4;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        .copyright a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+        
+        /* Privacy Policy Page */
+        .privacy-content {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 30px 0;
+        }
+        
+        .privacy-content h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        
+        .privacy-content h2 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: #333;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .article-image {
+                height: 250px;
+            }
+            
+            .footer-section {
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Lumora<span>X</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Article Content -->
+            <article>
+                <div class="article-header">
+                    <h1>Welcome to Your Website: A Platform for Quality Content</h1>
+                    <div class="article-meta">
+                        <span><i class="fas fa-user"></i> Admin</span>
+                        <span><i class="fas fa-calendar"></i> October 15, 2023</span>
+                        <span><i class="fas fa-clock"></i> 5 min read</span>
+                    </div>
+                </div>
+                
+                <div class="article-image">
+                    <div>Featured Article Image - 800x400px</div>
+                </div>
+                
+                <!-- AdSense Ad Placement (Top of Article) -->
+                <div class="ad-container">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-placeholder">
+                        <!-- REPLACE THIS WITH YOUR ADSENSE CODE -->
+                        <!-- AdSense Code Here: 728x90 Leaderboard -->
+                        <p>Google AdSense Leaderboard (728x90)</p>
+                    </div>
+                </div>
+                
+                <div class="article-content">
+                    <p>Welcome to our website! This is a sample article demonstrating the type of quality content you can publish on your site. For Google AdSense approval, it's essential to have genuine, original content that provides value to your readers.</p>
+                    
+                    <h2>Creating Quality Content for Your Visitors</h2>
+                    <p>When building a website for AdSense approval, focus on creating useful, informative content that addresses the needs of your target audience. Google looks for websites with substantial content before approving AdSense applications.</p>
+                    
+                    <p>Here are some key elements to include:</p>
+                    <ul>
+                        <li>Original articles with proper structure and headings</li>
+                        <li>Clear navigation and user-friendly design</li>
+                        <li>Contact information and about page</li>
+                        <li>Privacy policy page (required for AdSense)</li>
+                        <li>Mobile-responsive design</li>
+                        <li>Proper ad placements without overwhelming content</li>
+                    </ul>
+                    
+                    <h3>Understanding AdSense Policies</h3>
+                    <p>Google AdSense has specific policies that websites must follow. Make sure your site doesn't contain prohibited content such as copyrighted material, adult content, or violent material. Also, ensure you have a privacy policy page that discloses how you use data, especially if you're using cookies for advertising.</p>
+                    
+                    <!-- AdSense Ad Placement (Middle of Article) -->
+                    <div class="ad-container">
+                        <span class="ad-label">Advertisement</span>
+                        <div class="ad-placeholder">
+                            <!-- REPLACE THIS WITH YOUR ADSENSE CODE -->
+                            <!-- AdSense Code Here: 300x250 Medium Rectangle -->
+                            <p>Google AdSense Medium Rectangle (300x250)</p>
+                        </div>
+                    </div>
+                    
+                    <h2>Building a Sustainable Website</h2>
+                    <p>A successful website with AdSense requires consistency. Plan to publish regular content that engages your audience. Consider topics that you're knowledgeable about and that will attract readers over time.</p>
+                    
+                    <p>Remember that AdSense approval can take time. Google manually reviews each application to ensure websites meet their program policies. Even after approval, your site will continue to be evaluated for policy compliance.</p>
+                    
+                    <h3>Next Steps After Applying</h3>
+                    <p>While waiting for AdSense approval, continue to improve your website:</p>
+                    <ol>
+                        <li>Add more quality articles (aim for at least 10-15 good posts)</li>
+                        <li>Optimize your site for search engines (SEO)</li>
+                        <li>Promote your content on social media</li>
+                        <li>Ensure fast loading times</li>
+                        <li>Make sure your site works well on mobile devices</li>
+                    </ol>
+                </div>
+                
+                <!-- AdSense Ad Placement (Bottom of Article) -->
+                <div class="ad-container">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-placeholder">
+                        <!-- REPLACE THIS WITH YOUR ADSENSE CODE -->
+                        <!-- AdSense Code Here: 728x90 Leaderboard -->
+                        <p>Google AdSense Leaderboard (728x90)</p>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Sidebar -->
+            <aside>
+                <!-- Sidebar Ad -->
+                <div class="ad-container">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-placeholder">
+                        <!-- REPLACE THIS WITH YOUR ADSENSE CODE -->
+                        <!-- AdSense Code Here: 300x600 Skyscraper -->
+                        <p>Google AdSense Skyscraper (300x600)</p>
+                    </div>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3>About This Site</h3>
+                    <p>This is a sample website created to demonstrate proper structure for Google AdSense approval. Replace this content with your own articles and information.</p>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3>Recent Articles</h3>
+                    <ul class="recent-posts">
+                        <li><a href="article1.html">How to Create Quality Content for Your Website</a></li>
+                        <li><a href="article2.html">Understanding Google AdSense Policies</a></li>
+                        <li><a href="article3.html">Website Design Best Practices for 2023</a></li>
+                        <li><a href="article4.html">SEO Tips for New Websites</a></li>
+                        <li><a href="article5.html">Mobile Optimization Essentials</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Another Sidebar Ad -->
+                <div class="ad-container">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-placeholder">
+                        <!-- REPLACE THIS WITH YOUR ADSENSE CODE -->
+                        <!-- AdSense Code Here: 300x250 Medium Rectangle -->
+                        <p>Google AdSense Medium Rectangle (300x250)</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LumoraX</h3>
+                    <p>Providing quality content and valuable information to our readers. Our mission is to create a helpful resource for people seeking knowledge.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> email@yourwebsite.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 1234 Street Name, City, Country</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 LumoraX. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Page (Hidden by default - link in navigation) -->
+    <!-- You would create a separate privacy-policy.html file with similar structure -->
+    
+    <script>
+        // Simple script for navigation active state
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current page URL
+            const currentUrl = window.location.pathname;
+            
+            // Find all navigation links
+            const navLinks = document.querySelectorAll('nav a');
+            
+            // Loop through each link
+            navLinks.forEach(link => {
+                // Check if link href matches current URL
+                if (link.getAttribute('href') === currentUrl.split('/').pop()) {
+                    link.style.color = '#4285f4';
+                    link.style.fontWeight = '700';
+                }
+            });
+            
+            // Ad placeholder click simulation
+            const adPlaceholders = document.querySelectorAll('.ad-placeholder');
+            adPlaceholders.forEach(placeholder => {
+                placeholder.addEventListener('click', function() {
+                    alert('This is where your Google AdSense ads will appear. Replace these placeholders with your actual AdSense code after approval.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
