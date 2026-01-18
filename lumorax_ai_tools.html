@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumoraX - Best AI Tools for Students</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3rem;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-desc {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .tool-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .tool-category {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .tool-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .tool-features {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .tool-features li {
+            padding: 0.4rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .tool-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .benefits {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            z-index: 1;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 2rem;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="logo">LumoraX</div>
+        <div class="tagline">Illuminate Your Learning Journey with AI-Powered Tools</div>
+        <button class="cta-button" onclick="document.querySelector('.container').scrollIntoView({behavior: 'smooth'})">
+            Explore Tools
+        </button>
+        <div class="scroll-indicator"></div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">AI Tools by Category</h2>
+        <p class="section-subtitle">Discover the perfect AI assistant for every aspect of your academic journey</p>
+        
+        <div class="categories">
+            <div class="category-card">
+                <div class="category-icon">✍️</div>
+                <div class="category-title">Writing & Research</div>
+                <div class="category-desc">Transform your writing with AI-powered editing, research assistance, and content generation</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">📚</div>
+                <div class="category-title">Study & Learning</div>
+                <div class="category-desc">Master any subject with intelligent tutoring, flashcards, and personalized study plans</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎨</div>
+                <div class="category-title">Creative Projects</div>
+                <div class="category-desc">Bring your ideas to life with AI-powered design, video, and presentation tools</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">💻</div>
+                <div class="category-title">Coding & Tech</div>
+                <div class="category-desc">Accelerate your programming skills with AI code assistants and debugging tools</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Top AI Tools for Students</h2>
+        
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">🤖</div>
+                    <div class="tool-name">ChatGPT</div>
+                </div>
+                <span class="tool-category">Writing & Research</span>
+                <p class="tool-description">The ultimate AI assistant for students. Get instant answers, explanations, and help with homework across all subjects.</p>
+                <ul class="tool-features">
+                    <li>Answer complex questions instantly</li>
+                    <li>Generate essay outlines and ideas</li>
+                    <li>Explain difficult concepts simply</li>
+                    <li>Practice language learning</li>
+                </ul>
+                <a href="https://chat.openai.com" target="_blank" class="tool-link">Learn More</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">📝</div>
+                    <div class="tool-name">Grammarly</div>
+                </div>
+                <span class="tool-category">Writing & Research</span>
+                <p class="tool-description">Perfect your writing with AI-powered grammar checking, style suggestions, and plagiarism detection.</p>
+                <ul class="tool-features">
+                    <li>Real-time grammar corrections</li>
+                    <li>Tone and clarity improvements</li>
+                    <li>Plagiarism checker</li>
+                    <li>Works across all platforms</li>
+                </ul>
+                <a href="https://www.grammarly.com" target="_blank" class="tool-link">Learn More</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">🧠</div>
+                    <div class="tool-name">Quizlet</div>
+                </div>
+                <span class="tool-category">Study & Learning</span>
+                <p class="tool-description">AI-powered flashcards and study sets that adapt to your learning pace and style.</p>
+                <ul class="tool-features">
+                    <li>Smart flashcard generation</li>
+                    <li>Practice tests and games</li>
+                    <li>Spaced repetition learning</li>
+                    <li>Millions of study sets</li>
+                </ul>
+                <a href="https://quizlet.com" target="_blank" class="tool-link">Learn More</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">📖</div>
+                    <div class="tool-name">Notion AI</div>
+                </div>
+                <span class="tool-category">Study & Learning</span>
+                <p class="tool-description">Organize your entire academic life with AI-enhanced note-taking and project management.</p>
+                <ul class="tool-features">
+                    <li>AI writing assistance in notes</li>
+                    <li>Summarize long documents</li>
+                    <li>Task and project management</li>
+                    <li>Templates for every need</li>
+                </ul>
+                <a href="https://www.notion.so" target="_blank" class="tool-link">Learn More</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">🔬</div>
+                    <div class="tool-name">Wolfram Alpha</div>
+                </div>
+                <span class="tool-category">Study & Learning</span>
+                <p class="tool-description">Computational intelligence for math, science, and engineering problems with step-by-step solutions.</p>
+                <ul class="tool-features">
+                    <li>Solve complex equations</li>
+                    <li>Step-by-step explanations</li>
+                    <li>Data analysis and graphs</li>
+                    <li>Chemistry and physics help</li>
+                </ul>
+                <a href="https://www.wolframalpha.com" target="_blank" class="tool-link">Learn More</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">🎯</div>
+                    <div class="tool-name">Socratic by Google</div>
+                </div>
+                <span class="tool-category">Study & Learning</span>
+                <p class="tool-description">Take a photo of your homework and get instant explanations and learning resources.</p>
+                <ul class="tool-features">
+                    <li>Photo-based problem solving</li>
+                    <li>Visual explanations</li>
+                    <li>Multiple subjects covered</li>
+                    <li>Curated learning resources</li>
+                </ul>
+                <a href="https://socratic.org" target="_blank" class="tool-link">Learn More</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">🎨</div>
+                    <div class="tool-name">Canva AI</div>
+                </div>
+                <span class="tool-category">Creative Projects</span>
+                <p class="tool-description">Create stunning presentations, posters, and graphics with AI-powered design tools.</p>
+                <ul class="tool-features">
+                    <li>AI-generated designs</li>
+                    <li>Magic resize for all formats</li>
+                    <li>Template library</li>
+                    <li>Collaboration features</li>
+                </ul>
+                <a href="https://www.canva.com" target="_blank" class="tool-link">Learn More</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">🖼️</div>
+                    <div class="tool-name">DALL-E / Midjourney</div>
+                </div>
+                <span class="tool-category">Creative Projects</span>
+                <p class="tool-description">Generate unique images and illustrations for your projects using text descriptions.</p>
+                <ul class="tool-features">
+                    <li>Text-to-image generation</li>
+                    <li>Multiple art styles</li>
+                    <li>High-quality outputs</li>
+                    <li>Perfect for presentations</li>
+                </ul>
+                <a href="https://openai.com/dall-e" target="_blank" class="tool-link">Learn More</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">🎬</div>
+                    <div class="tool-name">Descript</div>
+                </div>
+                <span class="tool-category">Creative Projects</span>
+                <p class="tool-description">Edit videos and podcasts as easily as editing a document with AI transcription.</p>
+                <ul class="tool-features">
+                    <li>AI-powered video editing</li>
+                    <li>Remove filler words automatically</li>
+                    <li>Screen recording</li>
+                    <li>Transcription and subtitles</li>
+                </ul>
+                <a href="https://www.descript.com" target="_blank" class="tool-link">Learn More</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">💻</div>
+                    <div class="tool-name">GitHub Copilot</div>
+                </div>
+                <span class="tool-category">Coding & Tech</span>
+                <p class="tool-description">Your AI pair programmer that helps write code faster with intelligent suggestions.</p>
+                <ul class="tool-features">
+                    <li>AI code completion</li>
+                    <li>Learn by example</li>
+                    <li>Multiple language support</li>
+                    <li>Context-aware suggestions</li>
+                </ul>
+                <a href="https://github.com/features/copilot" target="_blank" class="tool-link">Learn More</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">🐛</div>
+                    <div class="tool-name">Tabnine</div>
+                </div>
+                <span class="tool-category">Coding & Tech</span>
+                <p class="tool-description">AI code assistant that learns your coding patterns and suggests entire code blocks.</p>
+                <ul class="tool-features">
+                    <li>Personalized completions</li>
+                    <li>Privacy-focused</li>
+                    <li>Team learning</li>
+                    <li>All major IDEs supported</li>
+                </ul>
+                <a href="https://www.tabnine.com" target="_blank" class="tool-link">Learn More</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon">📊</div>
+                    <div class="tool-name">Perplexity AI</div>
+                </div>
+                <span class="tool-category">Writing & Research</span>
+                <p class="tool-description">AI-powered research tool that provides cited answers with sources from across the web.</p>
+                <ul class="tool-features">
+                    <li>Real-time web search</li>
+                    <li>Cited sources included</li>
+                    <li>Follow-up questions</li>
+                    <li>Academic research mode</li>
+                </ul>
+                <a href="https://www.perplexity.ai" target="_blank" class="tool-link">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="benefits">
+        <h2 class="section-title" style="color: white;">Why Use AI Tools for Learning?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <div class="benefit-title">Save Time</div>
+                <p>Complete assignments faster and focus on understanding concepts rather than busywork</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🎓</div>
+                <div class="benefit-title">Learn Better</div>
+                <p>Get personalized explanations tailored to your learning style and pace</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🌟</div>
+                <div class="benefit-title">Boost Creativity</div>
+                <p>Overcome creative blocks and explore new ideas with AI assistance</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📈</div>
+                <div class="benefit-title">Improve Grades</div>
+                <p>Polish your work to perfection with AI-powered editing and feedback</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 LumoraX. Empowering students with AI-powered learning tools.</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">Your journey to smarter learning starts here ✨</p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
