@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumoraX - Discover the Best AI Tools for Business & Productivity</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .header {
+            padding: 2rem 5%;
+            background: rgba(15, 32, 39, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 5% 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 3rem 1.2rem 1.5rem;
+            font-size: 1.1rem;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .search-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .categories {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            background: rgba(59, 130, 246, 0.1);
+            color: #93c5fd;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #3b82f6;
+            color: #fff;
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .tool-card:hover::before {
+            left: 100%;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .tool-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .tool-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #93c5fd;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .tool-card p {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .tool-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag {
+            padding: 0.4rem 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .tool-link {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tool-link:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: rgba(15, 32, 39, 0.9);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 2px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .footer p {
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">LumoraX</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Discover AI Tools That Transform Your Work</h1>
+        <p>Curated collection of the most powerful AI tools for business and productivity. Boost efficiency, automate tasks, and stay ahead of the curve.</p>
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search for AI tools...">
+        </div>
+    </section>
+
+    <section class="categories" id="tools">
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">All Tools</button>
+            <button class="filter-btn" data-category="writing">Writing</button>
+            <button class="filter-btn" data-category="design">Design</button>
+            <button class="filter-btn" data-category="productivity">Productivity</button>
+            <button class="filter-btn" data-category="automation">Automation</button>
+            <button class="filter-btn" data-category="analytics">Analytics</button>
+        </div>
+
+        <div class="tools-grid" id="toolsGrid"></div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 LumoraX. Empowering businesses with AI innovation.</p>
+        <p>Discover, Compare, and Choose the Best AI Tools for Your Success</p>
+    </footer>
+
+    <script>
+        const tools = [
+            {
+                name: "ChatGPT",
+                category: "writing",
+                icon: "💬",
+                description: "Advanced conversational AI for content creation, coding assistance, and problem-solving. Transform your writing and research workflow.",
+                features: ["Content Generation", "Code Assistance", "24/7 Availability"],
+                link: "https://chat.openai.com"
+            },
+            {
+                name: "Claude",
+                category: "writing",
+                icon: "🤖",
+                description: "Sophisticated AI assistant for analysis, writing, and coding with extended context understanding and nuanced responses.",
+                features: ["Long Context", "Analysis", "Safe & Helpful"],
+                link: "https://claude.ai"
+            },
+            {
+                name: "Midjourney",
+                category: "design",
+                icon: "🎨",
+                description: "Create stunning AI-generated artwork and images from text prompts. Perfect for designers, marketers, and creative professionals.",
+                features: ["Image Generation", "High Quality", "Artistic Styles"],
+                link: "https://www.midjourney.com"
+            },
+            {
+                name: "Notion AI",
+                category: "productivity",
+                icon: "📝",
+                description: "Integrated AI assistant within Notion for writing, brainstorming, and organizing information seamlessly in your workspace.",
+                features: ["Writing Assistant", "Organization", "Collaboration"],
+                link: "https://www.notion.so/product/ai"
+            },
+            {
+                name: "Zapier",
+                category: "automation",
+                icon: "⚡",
+                description: "Connect and automate workflows between 5,000+ apps without coding. Save time on repetitive tasks and boost productivity.",
+                features: ["App Integration", "No-Code", "Workflow Automation"],
+                link: "https://zapier.com"
+            },
+            {
+                name: "Grammarly",
+                category: "writing",
+                icon: "✍️",
+                description: "AI-powered writing assistant that checks grammar, clarity, and tone. Enhance your communication across all platforms.",
+                features: ["Grammar Check", "Tone Detection", "Plagiarism Check"],
+                link: "https://www.grammarly.com"
+            },
+            {
+                name: "Canva AI",
+                category: "design",
+                icon: "🖼️",
+                description: "Design platform with AI features for creating graphics, presentations, and videos. Magic tools make design accessible to everyone.",
+                features: ["Template Library", "Magic Edit", "Brand Kit"],
+                link: "https://www.canva.com"
+            },
+            {
+                name: "Jasper",
+                category: "writing",
+                icon: "📄",
+                description: "AI content platform for creating blog posts, marketing copy, and social media content at scale with brand voice customization.",
+                features: ["Marketing Copy", "SEO Optimization", "Templates"],
+                link: "https://www.jasper.ai"
+            },
+            {
+                name: "Copy.ai",
+                category: "writing",
+                icon: "📋",
+                description: "Generate high-quality marketing copy, blog content, and social media posts in seconds. Perfect for content creators and marketers.",
+                features: ["Marketing Tools", "Multiple Languages", "Templates"],
+                link: "https://www.copy.ai"
+            },
+            {
+                name: "Tableau",
+                category: "analytics",
+                icon: "📊",
+                description: "Business intelligence platform with AI-powered analytics. Turn data into actionable insights with beautiful visualizations.",
+                features: ["Data Visualization", "Business Intelligence", "Dashboards"],
+                link: "https://www.tableau.com"
+            },
+            {
+                name: "Monday.com",
+                category: "productivity",
+                icon: "📅",
+                description: "Work OS with AI capabilities for project management, team collaboration, and workflow automation in one centralized platform.",
+                features: ["Project Management", "Team Collaboration", "Automation"],
+                link: "https://monday.com"
+            },
+            {
+                name: "Adobe Firefly",
+                category: "design",
+                icon: "🔥",
+                description: "Generative AI for creative workflows. Generate images, text effects, and design variations directly in Adobe apps.",
+                features: ["Image Generation", "Text Effects", "Adobe Integration"],
+                link: "https://www.adobe.com/products/firefly.html"
+            },
+            {
+                name: "Superhuman",
+                category: "productivity",
+                icon: "📧",
+                description: "Blazingly fast email client with AI features for summarization, writing assistance, and inbox management. Email reimagined.",
+                features: ["Email Speed", "AI Triage", "Smart Compose"],
+                link: "https://superhuman.com"
+            },
+            {
+                name: "Otter.ai",
+                category: "productivity",
+                icon: "🎙️",
+                description: "AI meeting assistant that records, transcribes, and summarizes meetings in real-time. Never miss important details again.",
+                features: ["Transcription", "Meeting Notes", "Action Items"],
+                link: "https://otter.ai"
+            },
+            {
+                name: "Make (Integromat)",
+                category: "automation",
+                icon: "🔗",
+                description: "Visual automation platform that connects apps and services. Build powerful automations with a drag-and-drop interface.",
+                features: ["Visual Builder", "App Integration", "Complex Workflows"],
+                link: "https://www.make.com"
+            },
+            {
+                name: "Gamma",
+                category: "design",
+                icon: "🎯",
+                description: "AI-powered presentation maker that creates beautiful decks in seconds. Transform ideas into polished presentations effortlessly.",
+                features: ["Quick Creation", "Beautiful Templates", "Collaboration"],
+                link: "https://gamma.app"
+            },
+            {
+                name: "Perplexity AI",
+                category: "productivity",
+                icon: "🔍",
+                description: "AI-powered search engine that provides accurate answers with citations. Research assistant that understands context and nuance.",
+                features: ["AI Search", "Citations", "Real-time Info"],
+                link: "https://www.perplexity.ai"
+            },
+            {
+                name: "Figma AI",
+                category: "design",
+                icon: "🎨",
+                description: "Collaborative design tool with AI features for prototyping, design systems, and team collaboration. Industry-standard for UI/UX.",
+                features: ["Collaboration", "Prototyping", "Design Systems"],
+                link: "https://www.figma.com"
+            },
+            {
+                name: "HubSpot AI",
+                category: "analytics",
+                icon: "📈",
+                description: "CRM platform with AI tools for marketing, sales, and customer service. Grow your business with data-driven insights.",
+                features: ["CRM", "Marketing Automation", "Analytics"],
+                link: "https://www.hubspot.com"
+            },
+            {
+                name: "Loom",
+                category: "productivity",
+                icon: "🎥",
+                description: "Video messaging tool with AI transcription and summaries. Communicate more effectively with async video messages.",
+                features: ["Screen Recording", "AI Transcription", "Async Communication"],
+                link: "https://www.loom.com"
+            },
+            {
+                name: "Descript",
+                category: "design",
+                icon: "🎬",
+                description: "All-in-one video and audio editing tool. Edit media files as easily as editing text documents with AI-powered features.",
+                features: ["Video Editing", "Transcription", "Voice Cloning"],
+                link: "https://www.descript.com"
+            },
+            {
+                name: "Anthropic Claude",
+                category: "writing",
+                icon: "🧠",
+                description: "Constitutional AI for safe, helpful, and honest assistance. Long-context processing for complex documents and analysis.",
+                features: ["Safety Focus", "Long Documents", "Analysis"],
+                link: "https://www.anthropic.com"
+            },
+            {
+                name: "Clickup AI",
+                category: "productivity",
+                icon: "✅",
+                description: "Project management platform with AI writing assistant, task automation, and smart workflows. Replace multiple apps with one.",
+                features: ["Task Management", "AI Writing", "Automation"],
+                link: "https://clickup.com"
+            },
+            {
+                name: "Beautiful.ai",
+                category: "design",
+                icon: "💼",
+                description: "Presentation software with smart templates that adapt to your content. Create stunning slides without design skills.",
+                features: ["Smart Templates", "Auto-formatting", "Team Collaboration"],
+                link: "https://www.beautiful.ai"
+            }
+        ];
+
+        const toolsGrid = document.getElementById('toolsGrid');
+        const searchInput = document.getElementById('searchInput');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        let currentFilter = 'all';
+
+        function renderTools(filterCategory = 'all', searchTerm = '') {
+            const filtered = tools.filter(tool => {
+                const matchesCategory = filterCategory === 'all' || tool.category === filterCategory;
+                const matchesSearch = tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                    tool.description.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            toolsGrid.innerHTML = filtered.map(tool => `
+                <div class="tool-card">
+                    <div class="tool-icon">${tool.icon}</div>
+                    <div class="tool-header">
+                        <div>
+                            <h3>${tool.name}</h3>
+                            <span class="tool-category">${tool.category}</span>
+                        </div>
+                    </div>
+                    <p>${tool.description}</p>
+                    <div class="tool-features">
+                        ${tool.features.map(f => `<span class="feature-tag">${f}</span>`).join('')}
+                    </div>
+                    <a href="${tool.link}" target="_blank" class="tool-link">Explore Tool →</a>
+                </div>
+            `).join('');
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.category;
+                renderTools(currentFilter, searchInput.value);
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            renderTools(currentFilter, e.target.value);
+        });
+
+        renderTools();
+    </script>
+</body>
+</html>
