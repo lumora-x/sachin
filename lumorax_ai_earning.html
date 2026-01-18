@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumoraX - Best AI Tools to Earn Money Online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 60px 0;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            padding: 80px 0;
+            background: #f8f9ff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .tool-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .tool-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .tool-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .tool-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .earning-potential {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .tool-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .tag {
+            padding: 6px 12px;
+            background: #e3f2fd;
+            color: #1976d2;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+
+        .category-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .category-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: #f8f9ff;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .tools-grid, .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">LumoraX</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tools">AI Tools</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#how">How It Works</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Unlock Your Earning Potential with AI</h1>
+            <p>Discover the most powerful AI tools to generate income online</p>
+            <a href="#tools" class="cta-button">Explore AI Tools</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>AI Tools Featured</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$10K+</h3>
+                    <p>Avg Monthly Earnings</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100K+</h3>
+                    <p>Active Users</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Earning Opportunities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Tools Section -->
+    <section class="tools-section" id="tools">
+        <div class="container">
+            <h2 class="section-title">Top AI Money-Making Tools</h2>
+            <p class="section-subtitle">Curated selection of proven AI tools to boost your income</p>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🎨</div>
+                    <h3>Midjourney & DALL-E</h3>
+                    <a href="https://www.midjourney.com" target="_blank" class="tool-link">midjourney.com</a> | <a href="https://openai.com/dall-e-3" target="_blank" class="tool-link">openai.com/dall-e</a>
+                    <div class="earning-potential">$500 - $5,000/month</div>
+                    <p>Generate stunning AI art and sell on marketplaces like Etsy, Redbubble, or directly to clients. Create custom logos, book covers, and digital artwork.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Design</span>
+                        <span class="tag">Creative</span>
+                        <span class="tag">Passive Income</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">✍️</div>
+                    <h3>ChatGPT & Claude</h3>
+                    <a href="https://chat.openai.com" target="_blank" class="tool-link">chat.openai.com</a> | <a href="https://claude.ai" target="_blank" class="tool-link">claude.ai</a>
+                    <div class="earning-potential">$1,000 - $10,000/month</div>
+                    <p>Offer content writing services, create courses, write eBooks, manage social media, or provide consulting services using advanced AI language models.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Writing</span>
+                        <span class="tag">Consulting</span>
+                        <span class="tag">High Demand</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🎬</div>
+                    <h3>Runway ML & Pictory</h3>
+                    <a href="https://runwayml.com" target="_blank" class="tool-link">runwayml.com</a> | <a href="https://pictory.ai" target="_blank" class="tool-link">pictory.ai</a>
+                    <div class="earning-potential">$800 - $8,000/month</div>
+                    <p>Create AI-powered videos for YouTube, TikTok, or client projects. Edit videos faster and produce engaging content for social media marketing.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Video</span>
+                        <span class="tag">Marketing</span>
+                        <span class="tag">Trending</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🎵</div>
+                    <h3>Mubert & AIVA</h3>
+                    <a href="https://mubert.com" target="_blank" class="tool-link">mubert.com</a> | <a href="https://www.aiva.ai" target="_blank" class="tool-link">aiva.ai</a>
+                    <div class="earning-potential">$300 - $3,000/month</div>
+                    <p>Generate royalty-free music for content creators, sell tracks on music libraries, or create custom soundtracks for videos and games.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Music</span>
+                        <span class="tag">Audio</span>
+                        <span class="tag">Licensing</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">💼</div>
+                    <h3>Jasper AI & Copy.ai</h3>
+                    <a href="https://www.jasper.ai" target="_blank" class="tool-link">jasper.ai</a> | <a href="https://www.copy.ai" target="_blank" class="tool-link">copy.ai</a>
+                    <div class="earning-potential">$1,500 - $7,000/month</div>
+                    <p>Provide copywriting services for businesses, create ad campaigns, write product descriptions, and offer email marketing solutions.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Copywriting</span>
+                        <span class="tag">Marketing</span>
+                        <span class="tag">Business</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🤖</div>
+                    <h3>GitHub Copilot & Replit AI</h3>
+                    <a href="https://github.com/features/copilot" target="_blank" class="tool-link">github.com/copilot</a> | <a href="https://replit.com/ai" target="_blank" class="tool-link">replit.com/ai</a>
+                    <div class="earning-potential">$2,000 - $15,000/month</div>
+                    <p>Build websites, apps, and software faster with AI coding assistants. Offer development services or create SaaS products.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Coding</span>
+                        <span class="tag">Development</span>
+                        <span class="tag">High Income</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🎙️</div>
+                    <h3>ElevenLabs & Descript</h3>
+                    <a href="https://elevenlabs.io" target="_blank" class="tool-link">elevenlabs.io</a> | <a href="https://www.descript.com" target="_blank" class="tool-link">descript.com</a>
+                    <div class="earning-potential">$600 - $5,000/month</div>
+                    <p>Create AI voiceovers for videos, audiobooks, podcasts, and commercials. Offer voice cloning services or dubbing solutions.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Voice</span>
+                        <span class="tag">Audio</span>
+                        <span class="tag">Content</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <h3>Tableau AI & DataRobot</h3>
+                    <a href="https://www.tableau.com/ai-analytics" target="_blank" class="tool-link">tableau.com/ai</a> | <a href="https://www.datarobot.com" target="_blank" class="tool-link">datarobot.com</a>
+                    <div class="earning-potential">$2,500 - $12,000/month</div>
+                    <p>Provide data analysis and visualization services to businesses. Create automated reports and predictive models for clients.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Data Science</span>
+                        <span class="tag">Analytics</span>
+                        <span class="tag">Enterprise</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🌐</div>
+                    <h3>Framer AI & Webflow AI</h3>
+                    <a href="https://www.framer.com" target="_blank" class="tool-link">framer.com</a> | <a href="https://webflow.com" target="_blank" class="tool-link">webflow.com</a>
+                    <div class="earning-potential">$1,200 - $8,000/month</div>
+                    <p>Design and build professional websites using AI-powered tools. Offer web design services or create templates to sell.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Web Design</span>
+                        <span class="tag">No-Code</span>
+                        <span class="tag">Templates</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">📱</div>
+                    <h3>AdCreative AI & Canva AI</h3>
+                    <a href="https://www.adcreative.ai" target="_blank" class="tool-link">adcreative.ai</a> | <a href="https://www.canva.com/ai-image-generator" target="_blank" class="tool-link">canva.com/ai</a>
+                    <div class="earning-potential">$700 - $6,000/month</div>
+                    <p>Create social media content, ads, and marketing materials. Manage social accounts or offer graphic design services.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Design</span>
+                        <span class="tag">Social Media</span>
+                        <span class="tag">Ads</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🔍</div>
+                    <h3>Surfer SEO & Frase</h3>
+                    <a href="https://surferseo.com" target="_blank" class="tool-link">surferseo.com</a> | <a href="https://www.frase.io" target="_blank" class="tool-link">frase.io</a>
+                    <div class="earning-potential">$1,000 - $8,000/month</div>
+                    <p>Offer SEO optimization services, create optimized content for businesses, and help websites rank higher on search engines.</p>
+                    <div class="tool-tags">
+                        <span class="tag">SEO</span>
+                        <span class="tag">Marketing</span>
+                        <span class="tag">Content</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🎓</div>
+                    <h3>Synthesia & Teachable AI</h3>
+                    <a href="https://www.synthesia.io" target="_blank" class="tool-link">synthesia.io</a> | <a href="https://teachable.com" target="_blank" class="tool-link">teachable.com</a>
+                    <div class="earning-potential">$1,500 - $10,000/month</div>
+                    <p>Create AI avatar videos for training, education, or marketing. Build and sell online courses using AI-generated content.</p>
+                    <div class="tool-tags">
+                        <span class="tag">Education</span>
+                        <span class="tag">Video</span>
+                        <span class="tag">Courses</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Income Categories</h2>
+            <p class="section-subtitle">Find the perfect AI opportunity for your skills</p>
+            
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">💡</div>
+                    <h3>Creative Services</h3>
+                    <p>Art, design, and content creation</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📝</div>
+                    <h3>Writing & Content</h3>
+                    <p>Copywriting, blogs, and eBooks</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💻</div>
+                    <h3>Development</h3>
+                    <p>Coding, apps, and websites</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📈</div>
+                    <h3>Marketing</h3>
+                    <p>SEO, ads, and social media</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how">
+        <div class="container">
+            <h2 class="section-title">How to Start Earning</h2>
+            <p class="section-subtitle">Your journey to AI-powered income in 4 simple steps</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Tool</h3>
+                    <p>Select an AI tool that matches your skills and interests from our curated list.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Learn & Practice</h3>
+                    <p>Master the tool through tutorials, practice projects, and experimentation.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Create Portfolio</h3>
+                    <p>Build impressive samples to showcase your AI-powered capabilities to clients.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Start Earning</h3>
+                    <p>Offer services on freelance platforms, sell products, or build your own business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LumoraX</h3>
+                    <p>Empowering creators with AI tools to unlock new income streams and achieve financial freedom.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#tools">AI Tools</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#how">How It Works</a></li>
+                        <li><a href="#home">Get Started</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LumoraX. All rights reserved. Empowering the future of AI-driven income.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.tool-card, .category-card, .step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
